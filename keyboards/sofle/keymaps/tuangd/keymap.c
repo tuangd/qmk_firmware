@@ -57,23 +57,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 /* Lower (1)
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |   F7 |   F8 |  F9  |  F10 |  F11 |
+ * |      |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |   F7 |   F8 |  F9  |  F10 |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   !  |   @  |   _  |   +  |   {  |                    | NumL |   N7 |   N8 |  N9  |   N* |  F12 |
+ * |      |   !  |   @  |   _  |   +  |   {  |                    | NumL |   N7 |   N8 |  N9  |   N* |  F11 |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |   #  |   $  |   (  |   )  |   `  |-------.    ,-------|   \  |   N4 |   N5 |  N6  |   N+ |   N- |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |      |   %  |   ^  |   -  |   =  |   ~  |-------|    |-------|   &  |   N1 |   N2 |  N3  |  N/  |      |
+ * |      |   %  |   ^  |   -  |   =  |   ~  |-------|    |-------|   &  |   N1 |   N2 |  N3  |  N/  |  F12 |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            |      |      |      |      | /       /       \      \  |      | N.   |  N0  |      |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 [_FUNC] = LAYOUT(
-  _______, KC_F1,  KC_F2,   KC_F3,   KC_F4, KC_F5,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
-  _______, KC_EXLM,KC_AT, KC_UNDS, KC_PLUS, KC_LCBR,                   KC_NLCK,   KC_P7,   KC_P8,   KC_P9, KC_PAST,  KC_F12,
-  _______, KC_HASH,KC_DLR,KC_LPRN, KC_RPRN, KC_GRV,                    KC_BSLS,   KC_P4,   KC_P5,   KC_P6, KC_PPLS,  KC_PMNS,
-  _______, KC_PERC,KC_CIRC,KC_MINS, KC_EQL, KC_TILD, _______,  _______,KC_AMPR,   KC_P1,   KC_P2,   KC_P3, KC_PSLS,  _______,
+  _______, KC_F1,  KC_F2,   KC_F3,   KC_F4, KC_F5,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, _______,
+  _______, KC_EXLM,KC_AT, KC_UNDS, KC_PLUS, KC_LCBR,                   KC_NLCK,   KC_P7,   KC_P8,   KC_P9, KC_PAST,  KC_F11,
+  _______, KC_HASH,KC_DLR,KC_LPRN, KC_RPRN, KC_GRV,                    KC_BSLS,   KC_P4,   KC_P5,   KC_P6, KC_PPLS, KC_PMNS,
+  _______, KC_PERC,KC_CIRC,KC_MINS, KC_EQL, KC_TILD, _______,  _______,KC_AMPR,   KC_P1,   KC_P2,   KC_P3, KC_PSLS,  KC_F12,
                  _______,_______,_______,_______, _______,      _______,_______,  KC_P0, KC_PDOT,  _______
 ),
 
@@ -161,7 +161,7 @@ static void print_status_narrow(void) {
     // Print current mode
     oled_write_P(PSTR("\n"), false);
     oled_write_ln_P(PSTR("MODE"), false);
-    oled_write_ln_P(PSTR(""), false);
+    oled_write_ln_P(PSTR("----"), false);
     if (keymap_config.swap_lctl_lgui) {
         oled_write_ln_P(PSTR("MAC"), false);
     } else {
@@ -178,28 +178,29 @@ static void print_status_narrow(void) {
         default:
             oled_write_P(PSTR("Undef"), false);
     }
-    oled_write_P(PSTR("\n\n"), false);
+    oled_write_ln_P(PSTR("----"), false);
     // Print current layer
     oled_write_ln_P(PSTR("LAYER"), false);
     switch (get_highest_layer(layer_state)) {
-        case _QWRTY:
-			oled_write_P(PSTR("QWRTY\n") , false);
         case _DVORAK:
             oled_write_P(PSTR("Base\n"), false);
             break;
         case _FUNC:
             oled_write_P(PSTR("Num\n"), false);
             break;
+		case _QWRTY:
+			oled_write_P(PSTR("QWRTY") , false);
+			break;
         case _MOUSE:
-            oled_write_P(PSTR("Mouse\n"), false);
+            oled_write_P(PSTR("Mouse"), false);
             break;
         case _ARROW:
-            oled_write_P(PSTR("Arrow\n"), false);
+            oled_write_P(PSTR("Arrow"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
     }
-    oled_write_P(PSTR("\n"), false);
+    oled_write_ln_P(PSTR("----"), false);
     led_t led_usb_state = host_keyboard_led_state();
     //// oled_write_ln_P(PSTR("CPSLK"), led_usb_state.caps_lock);
 	oled_write_ln_P(led_usb_state.num_lock ? PSTR("NUMLK ") : PSTR("    "), false);
