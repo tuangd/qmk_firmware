@@ -34,27 +34,27 @@ enum sofle_layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  * DVORAK 0
- * As I set my Windows to use dvorak layout the keymap here actually is a normal qwerty layout. (so the Windows knows how to change it to Dvorak)
+ * 
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |  `   |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  | BSpc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  | Enter|
+ * | Tab  |   '  |   ,  |   .  |   P |   Y   |                    |   F  |   G  |   C  |   R  |   L  | Enter|
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |F13   |   A  |   S  |   D  |LT4,F |   G  |-------.    ,-------|LT1,H |   J  |   K  |   L  |   ;  |  '   |
+ * |F13   |   A  |   O  |   E  |LT4,U |  I   |-------.    ,-------|LT1,D |   H  |   T  |   N  |   S  |   -  |
  * |------+------+------+------+------+------|  ESC  |    |  TG3  |------+------+------+------+------+------|
- * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RShift|
+ * |LShift|   ;  |   Q  |   J  |   K  |  X   |-------|    |-------|   B  |   M  |   W  |   V  |   Z  |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LGUI | LCTR | LALT |Space | /DEL    /       \ TG2  \  |LT2, ]|   -  | =    | [    |
+ *            | LGUI | LCTR | LALT |Space | /DEL    /       \ TG2  \  |LT2, =|   [  | ]    | /    |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 
 [_DVORAK] = LAYOUT(
-  KC_F14,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_BSPC,
-  KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_ENT,
-  KC_F13,  KC_A,   KC_S,    KC_D,LT(_ARROW,KC_F),  KC_G,                LT(_FUNC,KC_H),   KC_J,    KC_K,    KC_L, KC_SCLN,  KC_QUOT,
-  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_ESC,      TG(_QWRTY), KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_RSFT,
-		KC_LGUI,KC_LCTRL, KC_LALT, KC_SPC,  KC_DEL,      			  TG(_FUNC),LT(_MOUSE,KC_RBRC), KC_MINS, KC_EQL, KC_LBRC 
+  KC_F14,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_BSPC,
+  KC_TAB,KC_QUOT,KC_COMM,  KC_DOT,    KC_P,    KC_Y,                               KC_F,    KC_G,    KC_C,    KC_R,    KC_L,  KC_ENT,
+  KC_F13,   KC_A,   KC_O,    KC_E,LT(_ARROW,KC_U), KC_I,                 LT(_FUNC,KC_D),    KC_H,    KC_T,    KC_N,    KC_S,  KC_MINS,
+ KC_LSFT,KC_SCLN,   KC_Q,    KC_J,    KC_K,    KC_X, KC_ESC,           TG(_QWRTY), KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,  KC_RSFT,
+		KC_LGUI,KC_LCTRL, KC_LALT, KC_SPC,  KC_DEL,      	TG(_FUNC),LT(_MOUSE,KC_EQL), KC_LBRC, KC_RBRC, KC_SLSH
 ),
 /* Lower (1)
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -101,26 +101,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 /*
- * DVORAK to QWERTY
+ * QWERTY
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   X  |   ,  |   D  |   O  |   K  |                    |   T  |   F  |   G  |   S  |   R  |      |
+ * |      |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   A  |   ;  |   H  |   Y  |   U  |-------.    ,-------|   J  |   C  |   V  |   P  |   Z  |   Q  |
+ * |      |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |   "  |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |      |   /  |   B  |   I  |   .  |   N  |-------|    |-------|   L  |   M  |   W  |   E  |   [  |      |
+ * |      |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            |      |      |      |      | /       /       \      \  |  '   |   ]  |  -   |  =   |
+ *            |      |      |      |      | /       /       \      \  |      |      |      |      |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 [_QWRTY] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                    _______, _______, _______, _______, _______, _______,
-  _______,    KC_X, KC_COMM,    KC_D,    KC_O,    KC_K,                       KC_T,    KC_F,    KC_G,    KC_S,    KC_R, _______,
-  _______,    KC_A, KC_SCLN,    KC_H,    KC_Y,    KC_U,                       KC_J,    KC_C,    KC_V,    KC_P,    KC_Z,    KC_Q,
-  _______, KC_SLSH,    KC_B,    KC_I,  KC_DOT,    KC_N, _______,  _______,    KC_L,    KC_M,    KC_W,    KC_E, KC_LBRC, _______,
-                    _______, _______, _______, _______, _______,  _______, KC_QUOT, KC_RBRC, KC_MINS,  KC_EQL
+  _______,     KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, _______,
+  _______,     KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
+  _______,     KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, _______,  _______,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, _______,
+                    _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______
 ),
 
 /* VIM ARROW
