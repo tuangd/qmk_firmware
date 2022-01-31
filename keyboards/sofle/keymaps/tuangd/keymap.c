@@ -33,7 +33,8 @@ enum sofle_layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
- * QWERTY 0
+ * DVORAK 0
+ * As I set my Windows to use dvorak layout the keymap here actually is a normal qwerty layout. (so the Windows knows how to change it to Dvorak)
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |  `   |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  | BSpc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
