@@ -5,3 +5,21 @@ see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
 for more options.
 */
 
+#ifdef TAPPING_TERM
+    #undef TAPPING_TERM
+#endif
+#define TAPPING_TERM 200
+
+#ifdef DEBOUNCE
+	#undef DEBOUNCE
+#endif
+#define DEBOUNCE 5
+
+#define MOUSEKEY_INTERVAL 8
+#define MOUSEKEY_DELAY 0
+#define MOUSEKEY_TIME_TO_MAX 1000
+#define MOUSEKEY_MAX_SPEED 9
+#define MOUSEKEY_WHEEL_DELAY 0
+#define MOUSEKEY_WHEEL_INTERVAL 100
+#define MOUSEKEY_WHEEL_TIME_TO MAX 80
+#define MOUSEKEY_WHEEL_MAX_SPEED 3
