@@ -13,7 +13,7 @@ for more options.
 #ifdef DEBOUNCE
 	#undef DEBOUNCE
 #endif
-#define DEBOUNCE 5
+#define DEBOUNCE 30
 
 #ifdef TAPPING_TOGGLE
 	#undef TAPPING_TOGGLE
