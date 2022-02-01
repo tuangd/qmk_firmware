@@ -15,6 +15,12 @@ for more options.
 #endif
 #define DEBOUNCE 5
 
+#ifdef TAPPING_TOGGLE
+	#undef TAPPING_TOGGLE
+#endif
+
+#define TAPPING_TOGGLE 1
+
 #define MOUSEKEY_INTERVAL 8
 #define MOUSEKEY_DELAY 0
 #define MOUSEKEY_TIME_TO_MAX 1000
