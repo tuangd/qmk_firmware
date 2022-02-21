@@ -13,7 +13,7 @@ for more options.
 #ifdef DEBOUNCE
 	#undef DEBOUNCE
 #endif
-#define DEBOUNCE 30
+#define DEBOUNCE 15
 
 #ifdef TAPPING_TOGGLE
 	#undef TAPPING_TOGGLE
@@ -23,8 +23,8 @@ for more options.
 
 #define MOUSEKEY_INTERVAL 8
 #define MOUSEKEY_DELAY 0
-#define MOUSEKEY_TIME_TO_MAX 255
-#define MOUSEKEY_MAX_SPEED 8
+#define MOUSEKEY_TIME_TO_MAX 100
+#define MOUSEKEY_MAX_SPEED 5
 #define MOUSEKEY_WHEEL_DELAY 0
 #define MOUSEKEY_WHEEL_INTERVAL 100
 #define MOUSEKEY_WHEEL_TIME_TO MAX 80
